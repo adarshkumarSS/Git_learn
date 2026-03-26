@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/your-repo.git'
+                git 'https://github.com/adarshkumarSS/Git_learn.git'
             }
         }
 
@@ -24,12 +24,6 @@ pipeline {
         stage('Run Container') {
             steps {
                 bat 'docker run -d -p 5000:5000 --name mycontainer myapp'
-            }
-        }
-
-        stage('Upload to S3') {
-            steps {
-                bat 'python upload.py'
             }
         }
     }

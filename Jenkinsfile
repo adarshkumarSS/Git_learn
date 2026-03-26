@@ -18,6 +18,7 @@ pipeline {
         stage('Stop Old Container') {
             steps {
                 bat 'docker rm -f mycontainer || exit 0'
+                bat 'for /f "tokens=1" %i in (\'docker ps -q --filter "publish=5000"\') do docker stop %i'
             }
         }
 
